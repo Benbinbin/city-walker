@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: 'city-walker',
+  publicPath: '/city-walker/',
   css: {
     loaderOptions: {
       sass: {
