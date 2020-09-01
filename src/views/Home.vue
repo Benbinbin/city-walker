@@ -51,7 +51,7 @@
     </div>
     <hr />
     <div class="plan">
-      <h2>正在开发中……</h2>
+      <h2>开发中……</h2>
       <ul>
         <li>Pin 功能：记录新发现的角落</li>
         <li>登陆功能：登陆账号可以保存足迹，定制探索路线等</li>
@@ -65,12 +65,10 @@
       />
     </div>
     <footer>
-      <div class="container">
+      <div class="footer-container">
         <div id="contact">
           <h3>联系</h3>
           <div class="social-icons">
-            <img src="@/assets/images/weibo.svg" alt />
-            <img src="@/assets/images/wechat.svg" alt />
             <img src="@/assets/images/github.svg" alt />
             <img src="@/assets/images/email-icon.svg" alt />
           </div>
@@ -91,12 +89,6 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
 header {
   height: 1000px;
   padding: 2rem 5rem;
@@ -106,7 +98,10 @@ header {
     rgba(248, 169, 120, 0.5) 78.12%,
     rgba(248, 169, 120, 0) 100%
   );
-
+  @media screen and (max-width: 768px) {
+    height: 500px;
+    padding: 1.5rem 2.5rem;
+  }
   nav {
     display: flex;
     justify-content: space-between;
@@ -132,6 +127,18 @@ header {
       }
     }
     @media screen and (max-width: 768px) {
+      display: block;
+      .logo {
+        display: flex;
+        align-items: center;
+        img {
+          width: 30px;
+        }
+        span {
+          font-size: $normal;
+          margin-left: 10px;
+        }
+      }
       .links-container {
         display: none;
       }
@@ -158,13 +165,18 @@ header {
         line-height: 40px;
       }
     }
-
     @media screen and (max-width: 768px) {
+      margin-top: 50px;
       background: none;
       .content {
         h1 {
-          font-size: 50px;
-          text-shadow: 5px 5px 20px $bg-dark;
+          font-size: 2.5rem;
+          text-align: center;
+        }
+        p {
+          font-size: $normal;
+          text-align: center;
+          line-height: 30px;
         }
       }
     }
@@ -187,30 +199,24 @@ header {
       box-shadow: 5px 5px 15px $bg-dark;
     }
     @media screen and (max-width: 768px) {
-      width: 50%;
-      height: 35px;
-      line-height: 35px;
-      border-radius: 15px;
+      display: block;
+      width: 60%;
+      height: 50px;
+      margin: 100px auto;
       font-size: $normal;
+      line-height: 50px;
+      border-radius: 25px;
     }
   }
 }
 
 .main {
   max-width: 1280px;
+  padding: 2rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   background: url("~@/assets/images/route.png");
-  @media screen and (max-width: 768px) {
-    background: none;
-    display: block;
-    margin: 0 auto;
-    padding: 0 2rem;
-    .illustration {
-      display: none;
-    }
-  }
   background-size: contain;
   background-position: top center;
   background-repeat: no-repeat;
@@ -268,6 +274,20 @@ header {
       font-size: $small;
     }
   }
+  @media screen and (max-width: 768px) {
+    display: block;
+    background: none;
+    .illustration {
+      display: block;
+      width: 60%;
+      margin: 50px auto;
+    }
+    .color-map,
+    .sidebar-map,
+    .responsive-map {
+      width: 100%;
+    }
+  }
 }
 
 hr {
@@ -276,14 +296,14 @@ hr {
   margin: 150px auto;
   background: #c4c4c4;
   border: 1px solid #c4c4c4;
+  @media screen and (max-width: 768px) {
+    margin: 50px auto;
+  }
 }
 
 .plan {
   max-width: 1280px;
   margin: 0 auto;
-  @media screen and (max-width: 1200px) {
-    margin: 0 6rem;
-  }
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -308,10 +328,18 @@ hr {
   }
   @media screen and (max-width: 768px) {
     h2 {
-      font-size: 25px;
+      font-size: 1.5rem;
+    }
+    ul {
+      font-size: 0.5rem;
+      line-height: 30px;
+      li {
+        list-style-image: none;
+      }
     }
     .illustration {
-      display: none;
+      align-self: center;
+      width: 60%;
     }
   }
 }
@@ -328,7 +356,7 @@ footer {
   );
   color: $text-light;
 
-  .container {
+  .footer-container {
     display: flex;
     justify-content: space-between;
     h3 {
@@ -350,11 +378,19 @@ footer {
   .copyright {
     margin-top: 100px;
   }
-}
 
-@media screen and (max-width: 768px) {
-  footer {
-    display: none;
+  @media screen and (max-width: 768px) {
+    margin-top: 50px;
+    padding: 150px 1rem;
+    .footer-container {
+      flex-direction: column;
+    }
+    #contact {
+      margin-bottom: 2rem;
+    }
+    .copyright {
+      margin-top: 50px;
+    }
   }
 }
 </style>
